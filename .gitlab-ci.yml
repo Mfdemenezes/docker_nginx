@@ -3,6 +3,7 @@ stages:
 
 variables:
   IMAGE_TAG: "$CI_COMMIT_SHORT_SHA"
+  PROJECT_NAME: "$CI_PROJECT_NAME"
 
 build:
   stage: build
@@ -10,7 +11,6 @@ build:
   services:
     - docker:19-dind
   script:
-    - echo "descobrindo o valor de $CI_PROJECT_ID e $CI_PROJECT_NAME"
-    - docker build -t minha-imagem:$CI_COMMIT_SHORT_SHA .
+    - docker build -t $CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA .
   only:
     - main
