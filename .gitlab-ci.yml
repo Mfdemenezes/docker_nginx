@@ -11,6 +11,6 @@ build:
   services:
     - docker:19-dind
   script:
-    - docker build -t $CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA .
+    - docker build -t 782002899441.dkr.ecr.us-east-1.amazonaws.com/$CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA .
   only:
     - main
