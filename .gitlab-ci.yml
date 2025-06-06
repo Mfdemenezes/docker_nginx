@@ -1,6 +1,9 @@
 stages:
   - build
 
+variables:
+  IMAGE_TAG: "$CI_COMMIT_SHORT_SHA"
+
 build:
   stage: build
   image: docker:latest
@@ -8,4 +11,6 @@ build:
     - docker:19-dind
   script:
     - echo "Iniciando o build da minha imagem"
-    - docker build -t "minha-imagem" .
+    - docker build -t minha-imagem:$CI_COMMIT_SHORT_SHA .
+  only:
+    - main
