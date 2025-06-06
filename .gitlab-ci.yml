@@ -1,0 +1,11 @@
+stages:
+  - build
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:19-dind
+  script:
+    - echo "Iniciando o build da minha imagem"
+    - docker build -t "minha-imagem" .
